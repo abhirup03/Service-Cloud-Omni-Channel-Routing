@@ -1,6 +1,10 @@
 # Service Cloud - Create PSRs manually for Omni Channel Routing
 
+Overview:
+
 Create PSR's manually via Apex for a work item(Cases, Leads etc) which is assigned to a non omni routing queue/a specific user. Manage the PSR Lifecycle, Create Skills and route work items via Omni Channel using Skills Based Routing.
+
+Motivation/requirement behind the code:
 
 Standard Omni Channel functionality in Service Cloud, doesn't allow you to have control on PSR's and route them as per your business use case. In the standard routing lifecycle, followed by Omni Channel you can only either use Skills or Queue based routing. And if you have any customizations where you try to perform an update/manipulate the PSR, it can result in a race condition in Salesforce's Real Time backend server.
 
