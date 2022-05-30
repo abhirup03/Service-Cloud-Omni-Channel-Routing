@@ -6,7 +6,7 @@ public with sharing class CaseTriggerHandler {
 Public static void CreatePSRandSkill(List<Id> caseRecords){
 
 List<Case> cases = new List<Case>([select id from case where Id IN: caseRecords]);
-system.debug('case id---'+cases);
+
 
 List<PendingServiceRouting> CreatePSRList = new List<PendingServiceRouting>();
 
@@ -18,7 +18,7 @@ for(integer i=0; i<cases.size(); i++){
     psrObj.IsReadyForRouting = false;
     psrObj.RoutingModel = 'MostAvailable';
     psrObj.RoutingPriority = 1;
-    psrObj.ServiceChannelId = '0N97F000000Li8o';
+    psrObj.ServiceChannelId = 'Enter Service Channel ID here';
     psrObj.WorkItemId = cases[i].id;
     psrObj.PushTimeout = 0;
     psrObj.RoutingType = 'SkillsBased';
@@ -28,7 +28,7 @@ for(integer i=0; i<cases.size(); i++){
 
 if(CreatePSRList.size()>0 && CreatePSRList!=null){
     Insert CreatePSRList;
-    system.debug('PSR created---'+CreatePSRList);
+   
 }
 
 List<Id> PSRCreated = new List<Id>();
@@ -44,7 +44,7 @@ CaseTriggerHandler.createSkillRequirement(PSRCreated);
 
 @future(callout=true)
 public static void createSkillRequirement(List<Id> PSRId){
-system.debug('PSR ID line 95---'+PSRId);
+
 
 String receivedPSRId;
 
@@ -57,7 +57,7 @@ system.debug('receivedPSRId ==='+receivedPSRId);
 List<PendingServiceRouting> obj = new List<PendingServiceRouting>(
     [select id from PendingServiceRouting where id=:receivedPSRId and isReadyForRouting=false]
 );
-system.debug('obj line 102---'+obj);
+
 
 
 
