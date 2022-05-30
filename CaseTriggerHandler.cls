@@ -69,7 +69,7 @@ for(Integer j=0; j<obj.size(); j++){
     SkillRequirement Skills = new SkillRequirement();
     Skills.IsAdditionalSkill = false; 
     Skills.RelatedRecordId = obj[j].id;
-    Skills.SkillId = '0C57F000000PFK7SAO';
+    Skills.SkillId = 'Enter Skill ID here';
     SkillReq.add(Skills);
     system.debug('skill record is---'+SkillReq);
 }
